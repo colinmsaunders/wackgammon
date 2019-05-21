@@ -4,7 +4,7 @@
 import sys, logging, wsgiref.simple_server, cgi, json
 
 
-FN_WEBSITE = 'website.html'
+FN_WEBSITE = 'home.html'
 
 
 def ping():
@@ -73,8 +73,8 @@ def main(argv):
     if 0:
         pass
     elif 'ping' == c:
-        return ping()
-    elif 'serve' == c:
+        print(ping())
+    elif 'wsgi' == c:
         logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(levelname)s %(message)s', stream=sys.stdout)
         httpd = wsgiref.simple_server.make_server('127.0.0.1', 8000, lambda x, y: wsgi(x, y))
         logging.info('serving on 8000 ...')
